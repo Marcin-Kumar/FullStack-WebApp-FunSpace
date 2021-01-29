@@ -1,0 +1,24 @@
+{
+	"name": "fullstack-webapp-funspace",
+	"version": "1.0.0",
+	"description": "A web application to find an amazing place to camp, travel to, stay and enjoy during your leisure ",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Marcin-Kumar/FullStack-WebApp-FunSpace.git"
+	},
+	"author": "Marcin",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Marcin-Kumar/FullStack-WebApp-FunSpace/issues"
+	},
+	"homepage": "https://github.com/Marcin-Kumar/FullStack-WebApp-FunSpace#readme",
+	"dependencies": {
+		"ejs": "^3.1.5",
+		"express": "^4.17.1",
+		"mongoose": "^5.11.14"
+	}
+}
