@@ -3,18 +3,18 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Create a new travel spot</title>
+		<title>Edit a travel spot</title>
 	</head>
 	<body>
-		<h1>Add a new travel spot</h1>
-		<form action="/locations" method="POST">
+		<h1>Edit a travel spot</h1>
+		<form action="/locations/<%= location._id %>?_method=PUT" method="POST">
 			<div>
 				<label for="title">Add location title</label>
 				<input
 					type="text"
 					name="campground[title]"
-					placeholder="Location title"
 					id="title"
+					value="<%= location.title %>"
 				/>
 			</div>
 			<div>
@@ -24,6 +24,7 @@
 					name="campground[location]"
 					placeholder="Spot location"
 					id="location"
+					value="<%= location.location %>"
 				/>
 			</div>
 			<div>
@@ -33,6 +34,7 @@
 					name="campground[description]"
 					placeholder="Description"
 					id="description"
+					value="<%= location.description %>"
 				/>
 			</div>
 			<div>
@@ -43,11 +45,12 @@
 					name="campground[price]"
 					placeholder="Price"
 					id="price"
+					value="<%= location.price %>"
 				/>
 			</div>
 
-			<button type="submit">Add location</button>
+			<button type="submit">Edit location</button>
 		</form>
-		<a href="/locations">Go back to all locations</a>
+		<a href="/locations/<%= location._id %> ">Go back to location</a>
 	</body>
 </html>
