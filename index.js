@@ -66,7 +66,13 @@ app.put("/locations/:id", async (req, res) => {
 			new: true
 		}
 	);
-	res.render("locations/show", { location });
+	res.redirect("locations/show", { location });
+});
+
+app.delete("/locations/:id", async (req, res) => {
+	const { id } = req.params;
+	await Campground.findByIdAndRemove(id);
+	res.redirect("/locations");
 });
 
 app.listen(3000, () => {
