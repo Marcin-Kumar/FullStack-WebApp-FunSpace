@@ -20,6 +20,8 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
 	res.render("home");
 });
@@ -29,10 +31,22 @@ app.get("/locations", async (req, res) => {
 	res.render("locations/index", { locations });
 });
 
+app.get("/locations/new", async (req, res) => {
+	res.render("locations/new");
+});
+
 app.get("/locations/:id", async (req, res) => {
 	const { id } = req.params;
 	const location = await Campground.findById(id);
 	res.render("locations/show", { location });
+});
+
+app.post("/locations", async (req, res) => {
+	const details = req.body.campground;
+	const location = new Campground(details);
+	await location.save();
+	const locations = await Campground.find({});
+	res.redirect(`/locations/${location._id}`);
 });
 
 app.listen(3000, () => {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Create a new travel spot</title>
+	</head>
+	<body>
+		<h1>Add a new travel spot</h1>
+		<form action="/locations" method="POST">
+			<label for="title">Add location title</label>
+			<input
+				type="text"
+				name="campground[title]"
+				placeholder="Location title"
+				id="title"
+			/>
+			<label for="location">Add spot location</label>
+			<input
+				type="text"
+				name="campground[location]"
+				placeholder="Spot location"
+				id="location"
+			/>
+			<label for="description">Add a description</label>
+			<input
+				type="text"
+				name="campground[description]"
+				placeholder="Description"
+				id="description"
+			/>
+			<label for="price">Add location price for a day and night</label>
+			<input
+				type="number"
+				step="0.01"
+				name="campground[price]"
+				placeholder="Price"
+				id="price"
+			/>
+			<button type="submit">Add location</button>
+		</form>
+		<a href="/locations">Go back to all locations</a>
+	</body>
+</html>
