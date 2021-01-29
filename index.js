@@ -24,13 +24,15 @@ app.get("/", (req, res) => {
 	res.render("home");
 });
 
-app.get("/makeNewLocation", async (req, res) => {
-	const location = new Campground({
-		title: "My Backyard",
-		description: "For nature lovers"
-	});
-	await location.save();
-	res.send(location);
+app.get("/locations", async (req, res) => {
+	const locations = await Campground.find({});
+	res.render("locations/index", { locations });
+});
+
+app.get("/locations/:id", async (req, res) => {
+	const { id } = req.params;
+	const location = await Campground.findById(id);
+	res.render("locations/show", { location });
 });
 
 app.listen(3000, () => {
